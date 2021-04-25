@@ -25,5 +25,13 @@ contract("Greeter: update greeting", () => {
             assert.equal(expected, actual, "greeting was not updated");
         }); 
     });
+
+    describe("owner()", () => {
+        it("returns the address of the owner", async() => {
+            const greeter = await GreeterContract.deployed();
+            const actual = await greeter.owner();
+            assert(actual, "the current owner");
+        });
+    });
 });
 
