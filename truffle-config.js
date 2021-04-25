@@ -56,6 +56,15 @@ module.exports = {
         return new HDWalletProvider(mnemonic, "http://127.0.0.1:8545");
       },
       network_id: "*"
+    },
+
+    rinkedby: {
+      provider: () => {
+        const mnemonic = process.env["MNEMONIC"];
+        const infura_project_id = process.env["INFURA_PROJECT_ID"];
+        return new HDWalletProvider(mnemonic, `https://rinkeby.infura.io/v3/${infura_project_id}`);
+      },
+      network_id: "*"
     }
     // Another network with more advanced options...
     // advanced: {
