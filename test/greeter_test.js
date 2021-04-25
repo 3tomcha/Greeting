@@ -8,10 +8,22 @@ contract("Greeter", () => {
 
     describe("greet()", () => {
         it("returns Hello World", async() => {
-            greeter = await GreeterContract.deployed();
+            const greeter = await GreeterContract.deployed();
             const word = await greeter.greet();
             assert.equal(word, "Hello, World!", "greeted with 'Hello World!'");
         });
     });
 })
+
+contract("Greeter: update greeting", () => {
+    describe("setGreeting(string)", () => {
+        it("sets greeting to passed in string", async() => {
+            const greeter = await GreeterContract.deployed();
+            const expected = "";
+            await greeter.setGreeting(expected);
+            const actual = await greeter.greet();
+            assert.equal(expected, actual, "greeting was not updated");
+        }); 
+    });
+});
 
