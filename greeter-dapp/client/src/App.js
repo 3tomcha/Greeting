@@ -51,6 +51,13 @@ class App extends Component {
       <div className="App">
         <h1>Greeter</h1>
         {this.state.greeting}
+        <form>
+          <label>
+            New Greeting
+            <input type="text" value={this.state.greeting} onChange={this.handleGreetingChange}></input>
+          </label>
+          <button onClick={this.formSubmitHandler}>Submit</button>
+        </form>
       </div>
     );
   }
