@@ -54,12 +54,26 @@ class App extends Component {
         <form>
           <label>
             New Greeting
-            <input type="text" value={this.state.greeting} onChange={this.handleGreetingChange}></input>
+            <input type="text" value={this.state.greeting} onChange={e => this.handleGreetingChange(e)}></input>
           </label>
           <button onClick={this.formSubmitHandler}>Submit</button>
         </form>
       </div>
     );
+  }
+
+  handleGreetingChange = (e) => {
+    const inputVal = e.target.value;
+    this.setState({
+      greeting: inputVal
+    });
+  }
+
+  formSubmitHandler = async() => {
+    // web3に保存する
+    const {accounts, contract, greeting} = this.state;
+    // await console.log(this.state);
+    const updatedGreeting = await contract.methods.setGreeting(greeting).send({from: accounts[0]});
   }
 }
 

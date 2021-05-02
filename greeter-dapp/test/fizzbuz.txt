@@ -1,0 +1,15 @@
+process.stdin.resume();
+process.stdin.setEncoding('utf8');
+// Your code here!
+
+function fizzbuzzall(n) {
+    for (var i = 1; i <= n; i++) {
+        if (i % 2 == 0) {
+            console.log("hoge");
+        } else if (i % 7 == 0) {
+            console.log("fuga");
+        } else if (i % 14 == 0) {
+            console.log("piyo");
+        }
+    }
+}
